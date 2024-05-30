@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TestApp</string>
+    <string name="tv_scan">Scan</string>
+    <string name="tv_count_problems">%s Problems</string>
+    <string name="tv_device_scan">Device Scan</string>
+    <string name="show_you_all_info_about_phone">Show you all info about phone</string>
+    <string name="tv_dashboard">Dashboard</string>
+</resources>

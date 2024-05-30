@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="selago">#e5e9fc</color>
+    <color name="link_water">#e5e9fc</color>
+    <color name="blue_ribbon">#285FF6</color>
+    <color name="guardsman_red">#C30000</color>
+    <color name="red">#ff0000</color>
+    <color name="raven">#7D8088</color>
+    <color name="catskill_white">#f4f6fa</color>
+</resources>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animationCache="true"
+    android:background="@color/link_water"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.main.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/vScanBackground"
+            android:layout_width="225dp"
+            android:layout_height="225dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/ic_circle_scan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="450dp"
+            android:layout_height="450dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/vScanBackground"
+            app:layout_constraintEnd_toEndOf="@+id/vScanBackground"
+            app:layout_constraintStart_toStartOf="@+id/vScanBackground"
+            app:layout_constraintTop_toTopOf="@+id/vScanBackground"
+            app:lottie_fileName="dashboard_animation.json"
+            app:lottie_loop="true" />
+
+        <View
+            android:id="@+id/vLogo"
+            android:layout_width="90dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/img_logo"
+            app:layout_constraintEnd_toEndOf="@+id/vScanBackground"
+            app:layout_constraintStart_toStartOf="@+id/vScanBackground"
+            app:layout_constraintTop_toTopOf="@+id/vScanBackground" />
+
+        <TextView
+            android:id="@+id/tvScan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/tv_scan"
+            android:textColor="@color/blue_ribbon"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/vLogo"
+            app:layout_constraintStart_toStartOf="@+id/vLogo"
+            app:layout_constraintTop_toBottomOf="@+id/vLogo" />
+
+        <TextView
+            android:id="@+id/tvAlert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="8dp"
+            android:text="@string/tv_count_problems"
+            android:textColor="@color/guardsman_red"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_alert"
+            app:layout_constraintEnd_toEndOf="@+id/tvScan"
+            app:layout_constraintStart_toStartOf="@+id/tvScan"
+            app:layout_constraintTop_toBottomOf="@+id/tvScan" />
+
+        <com.example.testapp.ui.view.mainItem.MainItemView
+            android:id="@+id/miScan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="74dp"
+            app:layout_constraintEnd_toStartOf="@+id/miCheck"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vScanBackground" />
+
+        <com.example.testapp.ui.view.mainItem.MainItemView
+            android:id="@+id/miCheck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/miScan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/miScan"
+            app:layout_constraintTop_toTopOf="@+id/miScan" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/llBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_border_top"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_rectangle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/tv_dashboard"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
