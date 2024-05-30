@@ -27,9 +27,7 @@ class CategoriesAdapter(
             oldItem: CategoriesItem,
             newItem: CategoriesItem
         ): Boolean {
-            return oldItem.title == newItem.title &&
-                    oldItem.isError == newItem.isError &&
-                    oldItem.description == newItem.description
+            return oldItem.isError == newItem.isError
         }
     }
 

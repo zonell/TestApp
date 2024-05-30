@@ -79,6 +79,16 @@ class MainViewModel(
             }
         }
     }
+    fun refresh() {
+        val list = notifications.value
+
+        val updatedList = list?.map { notificationEntity ->
+            notificationEntity.updateIsError(false)
+        }
+
+        _notifications.value = updatedList
+    }
+
 
     private fun getNotification() {
         viewModelScope.launch {

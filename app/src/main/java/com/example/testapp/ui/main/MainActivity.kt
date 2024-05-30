@@ -8,6 +8,7 @@ import com.example.testapp.R
 import com.example.testapp.databinding.ActivityMainBinding
 import com.example.testapp.ui.main.adapter.CategoriesAdapter
 import com.example.testapp.ui.view.mainItem.model.MainItemModel
+import com.example.testapp.utils.extension.gone
 import com.example.testapp.utils.extension.visible
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -16,6 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val mainViewModel: MainViewModel by viewModel()
+
+    private var isClicked = false
 
     private val adapter = CategoriesAdapter {
         Toast.makeText(this@MainActivity, it.title, Toast.LENGTH_LONG).show()
@@ -68,12 +71,20 @@ class MainActivity : AppCompatActivity() {
     private fun setListener() {
         with(binding) {
             vScanBackground.setOnClickListener {
-                lottieAnimationView.apply {
-                    playAnimation()
-                    visible()
+                if (isClicked) {
+                    lottieAnimationView.apply {
+                        gone()
+                    }
+                    tvAlert.gone()
+                    mainViewModel.refresh()
+                } else {
+                    lottieAnimationView.apply {
+                        visible()
+                    }
+                    mainViewModel.generateNumbers()
                 }
 
-                mainViewModel.generateNumbers()
+                isClicked = !isClicked
             }
         }
     }

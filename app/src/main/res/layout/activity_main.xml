@@ -28,6 +28,7 @@
             android:layout_width="450dp"
             android:layout_height="450dp"
             android:visibility="gone"
+            app:lottie_autoPlay="true"
             app:layout_constraintBottom_toBottomOf="@+id/vScanBackground"
             app:layout_constraintEnd_toEndOf="@+id/vScanBackground"
             app:layout_constraintStart_toStartOf="@+id/vScanBackground"
